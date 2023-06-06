@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Xat SSL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/x.css">
+    </script>
+    <script type="text/javascript" src="js/xat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="row justify-content-left">
+        <div class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-1 col-md-3 offset-md-1">
+            <div class="card card-outline-secondary" style="min-height: 445px;">
+                <div class="card-header">
+                    <h3 class="mb-0">Connexió amb el servidor</h3>
+                </div>
+                <div id="connexio" class="card-body">
+                    <label for="lbServidor">Servidor</label>
+                    <input class="form-control" type="text" id="servidor" value="wss://localhost:5678">
+                    <br>
+                    <label for="lbServidor">NickName</label>
+                    <input class="form-control" type="text" id="nickName">
+                    <button id="btConnectar" class="btn btn-success btn-lg btn-block" type="submit"
+                        onclick="connectar()" style="margin-top:20px">connectar</button>
+                    <button id="btDesconnectar" class="btn btn-danger btn-lg btn-block" type="submit"
+                    onclick="desconnectar()"style="height: 0px; visibility: hidden; margin-top:20px">desconnectar</button>
+                    <!-- error o waiting -->
+                    <div id="msgerr" class="alert" style="margin-top: 5px; visibility: hidden;">
+                    </div>
+                </div>
+                <div>
+                    <div id="formulari" style="margin-top: 40px; height: 0px; visibility: hidden;">
+                        <div class="card card-outline-secondary">
+                            <div class="card-header">
+                                <h3 class="mb-0">Enviar Imatge</h3>
+                            </div>
+                            <div id="qmissatge" class="card-body">
+                                    <label for="lbMissatge">Missatge a enviar</label>
+                                    <input type="file" id="fitxerimatge">
+                                    <button id="btEnviar" class="btn btn-success btn-lg btn-block" type="submit"
+                                    onclick="enviarImatge()" style="margin-top:20px">Enviar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-6 col-md-3 offset-md-0">
+            <div class="card card-outline-secondary" style="min-height: 445px;">
+                <div class="card-header">
+                    <h3 class="mb-0" id="NickNamePanell">LOCAL</h3>
+                </div>
+                <div id="divxatlocal" class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-6 col-md-3 offset-md-0">
+            <div class="card card-outline-secondary" style="min-height: 445px;">
+                <div class="card-header">
+                    <h3 class="mb-0" id="NickNamePanellRemot">REMOT</h3>
+                </div>
+                <div id="divxatremot" class="card-body">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
